@@ -5,7 +5,10 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 
+@RunWith(RobolectricTestRunner::class)
 class InputCheckerTest {
     lateinit var target: InputChecker
 
@@ -49,9 +52,9 @@ class InputCheckerTest {
 
 //    @Ignore("this is skip sample")
     @Test
-    fun isValid_givenNull_throwIllegalArgumentException() {
+    fun isValid_givenBlank_throwIllegalArgumentException() {
         assertThatExceptionOfType(IllegalArgumentException::class.java)
-            .isThrownBy { target.isValid(null) }
+            .isThrownBy { target.isValid("") }
             .withMessage("Cannot be null")
             .withNoCause()
     }
