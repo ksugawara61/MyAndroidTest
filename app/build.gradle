@@ -21,9 +21,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+        }
     }
     testOptions {
-        unitTests.includeAndroidResources = true
+        unitTests.includeAndroidResources true
     }
 }
 
@@ -45,4 +48,12 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.3.1'
     testImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // for http response
+    implementation 'com.squareup.okhttp3:okhttp:4.6.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.6.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 }
