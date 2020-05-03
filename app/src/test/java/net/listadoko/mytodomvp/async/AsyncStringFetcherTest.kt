@@ -4,9 +4,12 @@ import com.nhaarman.mockitokotlin2.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import java.lang.RuntimeException
 import java.util.concurrent.CountDownLatch
 
+@RunWith(RobolectricTestRunner::class)
 class AsyncStringFetcherTest {
     lateinit var fetcher: StringFetcher
     lateinit var asyncFetcher: AsyncStringFetcher
